@@ -1,22 +1,14 @@
-# Apache TomEE JAX-RS AngularJS Starter Project
+          ______             _______   _       
+         |  ____|           |__   __| (_)      
+         | |__   __ _ ___ _   _| |_ __ _ _ __  
+         |  __| / _` / __| | | | | '__| | '_ \ 
+         | |___| (_| \__ \ |_| | | |  | | |_) |
+         |______\__,_|___/\__, |_|_|  |_| .__/ 
+                           __/ |        | |    
+                          |___/         |_|    
+----------------------------------------------------------------- 
 
-[![Try it out in Codenvy](https://tomitribe.github.io/codenvy/tryitout.svg)](https://codenvy.com/f?id=dztffm6dfrw4s3ld)
+Sistema desenvolvido para a materia DSID com o professor fantinato.
 
-The only thing better than a Maven archetype is a repo you can fork with everything already setup.  Skip the documentation and just fork-and-code.  This starter project contains:
 
- - Java
- -- Phone.java
- -- PhoneService.java
- -- PhoneServiceTest.java
-
- - JavaScript
- -- angular.js
- -- controllers.js
-
- - CSS
- -- bootstrap.css
- -- app.css
-
-Everything ready-to-run with a simple `maven clean install tomee:run`
-
-Delete the sample code, replace with your own and you're good to go.
+Apache TomEE JAX-RS AngularJS Starter Project clonado do https://github.com/tomitribe/tomee-jaxrs-angular-starter-project
