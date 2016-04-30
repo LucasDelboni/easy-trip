@@ -1,6 +1,8 @@
 .metadata
 bin/
+build/
 tmp/
+WebContent/
 *.tmp
 *.bak
 *.swp
