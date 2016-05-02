@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cdyne.ws.WeatherWS.WeatherSoapProxy;
+
 /**
  * Servlet implementation class HelloWorld
  */
@@ -38,6 +40,8 @@ public class HelloWorld extends HttpServlet {
         printWriter.println("<body>");
         printWriter.println("<h1>Hello World!</h1>");
         printWriter.print("<h1>Hello "+bean.from()+"!</h1>");
+        WeatherSoapProxy wc = new WeatherSoapProxy();
+        printWriter.println(wc.getCityForecastByZIP("14623").getForecastResult()[0].getTemperatures().getMorningLow());
         printWriter.println("</body>");
         printWriter.println("</head>");
         printWriter.println("</html>");
