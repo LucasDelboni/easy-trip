@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cdyne.ws.WeatherWS.WeatherSoapProxy;
+import NET.webserviceX.www.*;
 
 /**
  * Servlet implementation class HelloWorld
@@ -40,9 +41,19 @@ public class HelloWorld extends HttpServlet {
         printWriter.println("<body>");
         printWriter.println("<h1>Hello World!</h1>");
         printWriter.print("<h1>Hello "+bean.from()+"!</h1>");
+        printWriter.print("<h1>");
         //wsdl: http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl
         WeatherSoapProxy wc = new WeatherSoapProxy();
-        printWriter.println(wc.getCityForecastByZIP("14623").getForecastResult()[0].getTemperatures().getMorningLow());
+        String temperaturaZipCode = wc.getCityForecastByZIP("98926").getForecastResult()[0].getTemperatures().getMorningLow();
+        printWriter.println("graus Fahrenheit: "+temperaturaZipCode);
+        
+        //http://www.webservicex.net/ConvertTemperature.asmx?WSDL
+        ConvertTemperatureSoapProxy cc = new ConvertTemperatureSoapProxy();
+        double fahrenheit = Double.parseDouble(temperaturaZipCode);
+        double temperaturaCelsius = cc.convertTemp(fahrenheit,"degreeFahrenheit" , "degreeCelsius");
+        printWriter.println("graus Celsius:" +temperaturaCelsius);
+        printWriter.print("</h1>");
+        
         printWriter.println("</body>");
         printWriter.println("</head>");
         printWriter.println("</html>");
