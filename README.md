@@ -22,3 +22,6 @@ ele ajuda bastante a mexer com soap (cria wsdl e essas coisas, fantinato atÃ© fl
 
 Apache TomEE JAX-RS AngularJS Starter Project clonado do https://github.com/tomitribe/tomee-jaxrs-angular-starter-project
 
+- [query para procurar apis (aviação, cartão de credito, hotel, viagem e tempo)](http://www.programmableweb.com/category/air-travel%2Bcredit-cards%2Bhotels%2Btravel%2Bweather/apis?category=19989%2C20096%2C20057%2C19965%2C20122&data_format=21176)
+
+
