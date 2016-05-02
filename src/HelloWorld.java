@@ -40,6 +40,7 @@ public class HelloWorld extends HttpServlet {
         printWriter.println("<body>");
         printWriter.println("<h1>Hello World!</h1>");
         printWriter.print("<h1>Hello "+bean.from()+"!</h1>");
+        //wsdl: http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl
         WeatherSoapProxy wc = new WeatherSoapProxy();
         printWriter.println(wc.getCityForecastByZIP("14623").getForecastResult()[0].getTemperatures().getMorningLow());
         printWriter.println("</body>");
