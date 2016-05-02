@@ -1,6 +1,13 @@
-Rome2rio is an API to discover travel itineraries from all around the world. 
-Users can search various travel modes including plane, train, bus, car and ferries.
-http://www.programmableweb.com/api/rome2rio
+query para pesquiasr apis: http://www.programmableweb.com/category/air-travel%2Bcredit-cards%2Bhotels%2Btravel%2Bweather/apis?category=19989%2C20096%2C20057%2C19965%2C20122&data_format=21176
+
+http://www.programmableweb.com/api/rome2rio <---eles precisam autorizar vc a usar
 
 previsão do tempo
 https://www.wunderground.com/weather/api/
+
+
+http://www.programmableweb.com/api/pyton-flight-portal
+
+paypal <--- precisa de cnpj
+http://www.hotelston.com/about/api.jsf <---eles precisam autorizar vc a usar
+
