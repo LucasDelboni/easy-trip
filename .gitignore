@@ -2,7 +2,8 @@
 bin/
 build/
 tmp/
-WebContent/
+WebContent/META-INF/
+WebContent/WEB-INF/
 *.tmp
 *.bak
 *.swp
