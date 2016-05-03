@@ -17,7 +17,7 @@
 - http://www.programmableweb.com/api/confirm18.com <-- abandonada
 - http://www.programmableweb.com/api/travelport <-- API paga
 - https://developer.sabre.com/docs/Home <-- APIs SOAP não podem ser usadas em testes. Apenas as REST
-
+- http://www.booking.com/affiliate-program/faq.html <-- APIs fechadas para parceiros de "grande potencial"
 
 # APIs que precisam de CNPJ
 - paypal
