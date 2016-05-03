@@ -11,6 +11,13 @@
 - http://www.programmableweb.com/api/wizie <-- company name
 - http://www.programmableweb.com/api/travelport <-- company name
 - http://www.programmableweb.com/api/flightstats-weather <-- company name
+- http://www.programmableweb.com/api/pyton-leisure-portal <-- API paga
+- http://www.programmableweb.com/api/pyton-flight-portal<-- API paga
+- http://www.programmableweb.com/api/flightstats-ratings <-- API paga
+- http://www.programmableweb.com/api/confirm18.com <-- abandonada
+- http://www.programmableweb.com/api/travelport <-- API paga
+- https://developer.sabre.com/docs/Home <-- APIs SOAP não podem ser usadas em testes. Apenas as REST
+
 
 # APIs que precisam de CNPJ
 - paypal
