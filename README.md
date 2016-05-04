@@ -15,6 +15,8 @@
 ele ajuda bastante a mexer com soap (cria wsdl e essas coisas, fantinato até flo dele)
 ### tomee-> apache-tomee-webprofile-1.7.4 
 (tomcat + ejb + um monte de coisa).
+### [jersey-archive-1.17.1.zip](http://repo1.maven.org/maven2/com/sun/jersey/jersey-archive/1.17.1/)
+esse dai alem de colocar no classpath, voc� precisa colocar os jars na lib do tomee
 
 ###### O projeto do eclipse é um: Dynamic web  project. Tem q ter um eclipse EE pra usar.
 
