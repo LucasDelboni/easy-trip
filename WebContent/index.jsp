@@ -9,9 +9,17 @@
 	</head>
 	
 	<body>
-		<%  
+	<form method="GET">
+		<input type="number" name="zipCode">
+		<input type="submit">
+	</form><%  
+			String zipCode = "98926";
+			if(request.getParameter("zipCode")!=null){
+				zipCode = request.getParameter("zipCode");
+			}
+			
 			HelloBean bean = new HelloBean();
-			String temperaturaZipCode = bean.getTemperaturaZipCode("98926");
+			String temperaturaZipCode = bean.getTemperaturaZipCode(zipCode);
 			double temperaturaCelsius = bean.fahrenheitToCelsius(temperaturaZipCode);
 		%>
 		<h1>
