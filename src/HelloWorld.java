@@ -1,7 +1,11 @@
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
+
 
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,12 +38,21 @@ public class HelloWorld extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+    	Client client = Client.create();
+    	String apiCall = null;
+    	apiCall = "http://www.omdbapi.com/?s=Titanic";
+    	WebResource webResource = client.resource(apiCall);
+    	String outputString = webResource.get(String.class);
+    	
+
+    	
+    	response.setContentType("text/html");
         PrintWriter printWriter  = response.getWriter();
         printWriter.println("<html>");
-        printWriter.println("<head>");
-        printWriter.println("<body>");
-        printWriter.println("<h1>Hello World!</h1>");
+    	printWriter.println("<head>");
+		printWriter.println("<body>");
+		printWriter.println(outputString);
+		printWriter.println("<h1>Hello World!</h1>");
         printWriter.print("<h1>Hello "+bean.from()+"!</h1>");
         printWriter.print("<h1>");
         //wsdl: http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl
