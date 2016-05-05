@@ -11,7 +11,8 @@ public class ChamadasAPISOAP {
 	public String getTemperaturaZipCode(String zipCode) throws RemoteException{
     	WeatherSoapProxy wc = new WeatherSoapProxy();
 		String temperaturaZipCode = wc.getCityForecastByZIP(zipCode).getForecastResult()[0].getTemperatures().getMorningLow();
-		return temperaturaZipCode;
+		String t = wc.getCityWeatherByZIP(zipCode).getTemperature();
+		return t;
     }
 	
 	public double fahrenheitToCelsius(String temperaturaFahrenheit) throws RemoteException{
