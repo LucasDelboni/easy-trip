@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import com.cdyne.ws.WeatherWS.WeatherSoapProxy;
 
 import NET.webserviceX.www.ConvertTemperatureSoapProxy;
-import conexaoDB.UsuarioProxy;
+import br.usp.easytripdatabase.*;
 
 public class ChamadasAPISOAP {
 	public String getTemperaturaZipCode(String zipCode) throws RemoteException{
@@ -22,8 +22,8 @@ public class ChamadasAPISOAP {
     }
 	
 	public int getIdUsuario(String email, String senha) throws RemoteException{
-		UsuarioProxy sp = new UsuarioProxy();
-		int id = sp.getUsuario().usuarioExiste(email, senha);
+		UsuariosProxy sp = new UsuariosProxy();
+		int id = sp.getUsuarios().getAutenticacaoUsuario(email, senha);
 		return id;
 	}
 
