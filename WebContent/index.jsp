@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" 
-    import="br.usp.easytrip.bean.*" %>
+    import="api.ChamadasAPISOAP" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -18,15 +18,20 @@
 				zipCode = request.getParameter("zipCode");
 			}
 			
-			HelloBean bean = new HelloBean();
-			String temperaturaZipCode = bean.getTemperaturaZipCode(zipCode);
-			double temperaturaCelsius = bean.fahrenheitToCelsius(temperaturaZipCode);
+			ChamadasAPISOAP api = new ChamadasAPISOAP();
+			String temperaturaZipCode = api.getTemperaturaZipCode(zipCode);
+			double temperaturaCelsius = api.fahrenheitToCelsius(temperaturaZipCode);
+			
+			int id = api.getIdUsuario("lucas@localhost.com", "senha");
 		%>
 		<h1>
 			<%  out.println("Graus fahrenheit: "+temperaturaZipCode); %>
 		</h1>
 		<h1>
 			<% out.println("Graus celsius:" +temperaturaCelsius); %>
+		</h1>
+		<h1>
+			<% out.println("id do lucas:" +id); %>
 		</h1>
 	</body>
 </html>
