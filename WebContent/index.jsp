@@ -22,7 +22,9 @@
 			String temperaturaZipCode = api.getTemperaturaZipCode(zipCode);
 			double temperaturaCelsius = api.fahrenheitToCelsius(temperaturaZipCode);
 			
-			int id = api.getIdUsuario("lucas@localhost.com", "senha");
+			String email = request.getParameter("email");
+			String senha = request.getParameter("senha");
+			int id = api.getIdUsuario(email, senha);
 		%>
 		<h1>
 			<%  out.println("Graus fahrenheit: "+temperaturaZipCode); %>
@@ -31,7 +33,7 @@
 			<% out.println("Graus celsius:" +temperaturaCelsius); %>
 		</h1>
 		<h1>
-			<% out.println("id do lucas:" +id); %>
+			<% out.println("id do "+email+" : " +id); %>
 		</h1>
 	</body>
 </html>
