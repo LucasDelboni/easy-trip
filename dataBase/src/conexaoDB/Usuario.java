@@ -5,6 +5,22 @@ import java.sql.SQLException;
 
 
 public class Usuario {
+	public boolean insertUsuario(String nome, String email, String senha, String cpf){
+		try {
+			java.sql.Connection conn = ConexaoMySQL.getConexaoMySQL();
+			java.sql.Statement stmt = conn.createStatement();
+			String sql = "INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `email`, `senha`) "
+					+ "VALUES (NULL, \'"+nome+"\', \'"+cpf+"\',\'"+email+"\',\'"+senha+"\');";
+			System.out.println(sql);
+			stmt.executeUpdate(sql);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public int usuarioExiste(String email, String senha){
 		try {
 			java.sql.Connection conn = ConexaoMySQL.getConexaoMySQL();
