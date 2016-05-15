@@ -5,16 +5,31 @@
   <service name="usuarios" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://easytripdatabase.usp.br"/>
       <parameter name="wsdlServiceElement" value="usuariosService"/>
-      <parameter name="schemaQualified" value="http://easytripdatabase.usp.br"/>
+      <parameter name="schemaQualified" value="http://easytripdatabase.usp.br,http://model"/>
       <parameter name="wsdlServicePort" value="usuarios"/>
       <parameter name="className" value="br.usp.easytripdatabase.usuarios"/>
       <parameter name="wsdlPortType" value="usuarios"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://easytripdatabase.usp.br" xmlns:retNS="http://easytripdatabase.usp.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertUsuario" qname="operNS:insertUsuario" returnQName="retNS:insertUsuarioReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nome" type="tns:string"/>
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senha" type="tns:string"/>
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cpf" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://easytripdatabase.usp.br" xmlns:retNS="http://easytripdatabase.usp.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCPF" qname="operNS:getCPF" returnQName="retNS:getCPFReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senha" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://easytripdatabase.usp.br" xmlns:retNS="http://easytripdatabase.usp.br" xmlns:rtns="http://model" name="getUsuario" qname="operNS:getUsuario" returnQName="retNS:getUsuarioReturn" returnType="rtns:Usuario" soapAction="">
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+        <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senha" type="tns:string"/>
+      </operation>
       <operation xmlns:operNS="http://easytripdatabase.usp.br" xmlns:retNS="http://easytripdatabase.usp.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAutenticacaoUsuario" qname="operNS:getAutenticacaoUsuario" returnQName="retNS:getAutenticacaoUsuarioReturn" returnType="rtns:int" soapAction="">
         <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
         <parameter xmlns:pns="http://easytripdatabase.usp.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senha" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="getAutenticacaoUsuario"/>
+      <parameter name="allowedMethods" value="insertUsuario getAutenticacaoUsuario getUsuario getCPF"/>
 
+      <typeMapping xmlns:ns="http://model" qname="ns:Usuario" type="java:model.Usuario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>

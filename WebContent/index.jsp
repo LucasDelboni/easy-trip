@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" 
-    import="api.ChamadasAPISOAP" %>
+    import="br.usp.easytrip.jpa.dao.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -22,9 +22,10 @@
 			String temperaturaZipCode = api.getTemperaturaZipCode(zipCode);
 			double temperaturaCelsius = api.fahrenheitToCelsius(temperaturaZipCode);
 			
+			UsuarioDAO user = new UsuarioDAO();
 			String email = request.getParameter("email");
 			String senha = request.getParameter("senha");
-			int id = api.getIdUsuario(email, senha);
+			int id = user.getIdUsuario(email, senha);
 		%>
 		<h1>
 			<%  out.println("Graus fahrenheit: "+temperaturaZipCode); %>

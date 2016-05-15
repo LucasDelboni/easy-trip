@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://easytripdatabase.usp.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://easytripdatabase.usp.br" xmlns:intf="http://easytripdatabase.usp.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://easytripdatabase.usp.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://easytripdatabase.usp.br" xmlns:intf="http://easytripdatabase.usp.br" xmlns:tns1="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://easytripdatabase.usp.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model"/>
+   <element name="insertUsuario">
+    <complexType>
+     <sequence>
+      <element name="nome" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpf" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="insertUsuarioReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCPF">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCPFResponse">
+    <complexType>
+     <sequence>
+      <element name="getCPFReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUsuario">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="getUsuarioReturn" type="tns1:Usuario"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="getAutenticacaoUsuario">
     <complexType>
      <sequence>
@@ -20,11 +68,54 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     </complexType>
    </element>
   </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Usuario">
+    <sequence>
+     <element name="cpf" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nome" nillable="true" type="xsd:string"/>
+     <element name="senha" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
  </wsdl:types>
 
    <wsdl:message name="getAutenticacaoUsuarioResponse">
 
       <wsdl:part element="impl:getAutenticacaoUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCPFResponse">
+
+      <wsdl:part element="impl:getCPFResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertUsuarioRequest">
+
+      <wsdl:part element="impl:insertUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertUsuarioResponse">
+
+      <wsdl:part element="impl:insertUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUsuarioResponse">
+
+      <wsdl:part element="impl:getUsuarioResponse" name="parameters">
 
       </wsdl:part>
 
@@ -38,7 +129,59 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getUsuarioRequest">
+
+      <wsdl:part element="impl:getUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCPFRequest">
+
+      <wsdl:part element="impl:getCPF" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="usuarios">
+
+      <wsdl:operation name="insertUsuario">
+
+         <wsdl:input message="impl:insertUsuarioRequest" name="insertUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertUsuarioResponse" name="insertUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCPF">
+
+         <wsdl:input message="impl:getCPFRequest" name="getCPFRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCPFResponse" name="getCPFResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUsuario">
+
+         <wsdl:input message="impl:getUsuarioRequest" name="getUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUsuarioResponse" name="getUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="getAutenticacaoUsuario">
 
@@ -57,6 +200,60 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:binding name="usuariosSoapBinding" type="impl:usuarios">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCPF">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCPFRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCPFResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="getAutenticacaoUsuario">
 

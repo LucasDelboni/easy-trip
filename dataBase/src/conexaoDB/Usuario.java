@@ -3,7 +3,6 @@ package conexaoDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class Usuario {
 	public boolean insertUsuario(String nome, String email, String senha, String cpf){
 		try {
@@ -74,5 +73,27 @@ public class Usuario {
 		}
 		return -1;
 	
+	}
+	
+	public model.Usuario getUsuario(String email, String senha){
+		model.Usuario user = new model.Usuario();
+		try {
+			java.sql.Connection conn = ConexaoMySQL.getConexaoMySQL();
+			java.sql.Statement stmt = conn.createStatement();
+			String sql = "SELECT * FROM `usuarios` WHERE `email`=\""+email+"\" AND `senha`=\""+senha+"\"";
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				user.setCpf(rs.getString("cpf"));
+				user.setEmail(email);
+				user.setId(rs.getInt("id"));
+				user.setNome(rs.getString("nome"));
+				user.setSenha(senha);
+			}
+			return user;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 }

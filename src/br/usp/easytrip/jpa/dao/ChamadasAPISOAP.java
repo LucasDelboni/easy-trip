@@ -1,4 +1,4 @@
-package api;
+package br.usp.easytrip.jpa.dao;
 
 import java.rmi.RemoteException;
 
@@ -21,11 +21,4 @@ public class ChamadasAPISOAP {
 	    double temperaturaCelsius = cc.convertTemp(fahrenheit,"degreeFahrenheit" , "degreeCelsius");
 		return temperaturaCelsius;
     }
-	
-	public int getIdUsuario(String email, String senha) throws RemoteException{
-		UsuariosProxy sp = new UsuariosProxy();
-		int id = sp.getUsuarios().getAutenticacaoUsuario(email, senha);
-		return id;
-	}
-
 }

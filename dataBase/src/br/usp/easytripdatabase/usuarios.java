@@ -22,11 +22,14 @@ public class usuarios {
 		return conexao.usuarioExiste(email, senha);
 	}
 	
-	public int getCPF(int id){
-		return conexao.getCPF(id);
-	}
-	
 	public int getCPF(String email, String senha){
 		return conexao.getCPF(email, senha);
 	}
+	
+	public model.Usuario getUsuario(String email, String senha){
+		model.Usuario user = conexao.getUsuario(email, senha);
+		return user;
+	}
+	
+	
 }

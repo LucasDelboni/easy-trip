@@ -47,18 +47,33 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="usuarios" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="getAutenticacaoUsuario" qname="ns2:getAutenticacaoUsuario" returnQName="ns2:getAutenticacaoUsuarioReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://easytripdatabase.usp.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="insertUsuario" qname="ns2:insertUsuario" returnQName="ns2:insertUsuarioReturn" returnType="xsd:boolean" soapAction="" xmlns:ns2="http://easytripdatabase.usp.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:nome" type="xsd:string"/>
    <ns1:parameter qname="ns2:email" type="xsd:string"/>
    <ns1:parameter qname="ns2:senha" type="xsd:string"/>
+   <ns1:parameter qname="ns2:cpf" type="xsd:string"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="getAutenticacaoUsuario"/>
+  <ns1:operation name="getCPF" qname="ns3:getCPF" returnQName="ns3:getCPFReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://easytripdatabase.usp.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:email" type="xsd:string"/>
+   <ns1:parameter qname="ns3:senha" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getUsuario" qname="ns4:getUsuario" returnQName="ns4:getUsuarioReturn" returnType="ns5:Usuario" soapAction="" xmlns:ns4="http://easytripdatabase.usp.br" xmlns:ns5="http://model">
+   <ns1:parameter qname="ns4:email" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:senha" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getAutenticacaoUsuario" qname="ns6:getAutenticacaoUsuario" returnQName="ns6:getAutenticacaoUsuarioReturn" returnType="xsd:int" soapAction="" xmlns:ns6="http://easytripdatabase.usp.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:email" type="xsd:string"/>
+   <ns1:parameter qname="ns6:senha" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="insertUsuario getAutenticacaoUsuario getUsuario getCPF"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="usuarios"/>
   <ns1:parameter name="className" value="br.usp.easytripdatabase.usuarios"/>
   <ns1:parameter name="wsdlServicePort" value="usuarios"/>
-  <ns1:parameter name="schemaQualified" value="http://easytripdatabase.usp.br"/>
+  <ns1:parameter name="schemaQualified" value="http://easytripdatabase.usp.br,http://model"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://easytripdatabase.usp.br"/>
   <ns1:parameter name="wsdlServiceElement" value="usuariosService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:Usuario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:model.Usuario" xmlns:ns7="http://model"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>
