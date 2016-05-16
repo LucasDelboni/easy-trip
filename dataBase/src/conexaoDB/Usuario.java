@@ -90,7 +90,7 @@ public class Usuario {
 				user.setSenha(senha);
 			}
 			return user;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

@@ -57,9 +57,7 @@ public class HelloWorld extends HttpServlet {
 		printWriter.println("<h1>Hello World!</h1>");
         printWriter.print("<h1>Hello "+bean.from()+"!</h1>");
         
-        //UsuariosProxy us = new UsuariosProxy();
-        //Usuario a = us.getUsuarios().getUsuario("lucas@localhost.com", "lucas");
-        //printWriter.println("<h1>a</h1>");
+        
         
         printWriter.print("<h1>");
         //wsdl: http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl
@@ -72,11 +70,12 @@ public class HelloWorld extends HttpServlet {
         double fahrenheit = Double.parseDouble(temperaturaZipCode);
         double temperaturaCelsius = cc.convertTemp(fahrenheit,"degreeFahrenheit" , "degreeCelsius");
         printWriter.println("graus Celsius:" +temperaturaCelsius);
-        
-        
-       
-        
         printWriter.print("</h1>");
+        
+        UsuariosProxy us = new UsuariosProxy();
+        Usuario a = new Usuario();
+        a = us.getUsuarios().getUsuario("lucas@localhost.com", "senh");
+        printWriter.println("<h1>emaildo usuario logado: "+a.getEmail()+"</h1>");
         
         
         printWriter.println("</body>");
