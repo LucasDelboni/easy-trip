@@ -25,7 +25,8 @@
 			UsuarioDAO user = new UsuarioDAO();
 			String email = request.getParameter("email");
 			String senha = request.getParameter("senha");
-			int id = user.getIdUsuario(email, senha);
+			model.Usuario usuario = user.validaUsuario(email, senha);
+			
 		%>
 		<h1>
 			<%  out.println("Graus fahrenheit: "+temperaturaZipCode); %>
@@ -34,7 +35,7 @@
 			<% out.println("Graus celsius:" +temperaturaCelsius); %>
 		</h1>
 		<h1>
-			<% out.println("id do "+email+" : " +id); %>
+			<% out.println("cpf do "+usuario.getEmail()+" : " +usuario.getCpf()); %>
 		</h1>
 	</body>
 </html>
